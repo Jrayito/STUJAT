@@ -273,5 +273,5 @@ $('#impartir').change(function(){
 
 // ************** FUNCIONES PARA CARGAR EL DOCUMENTO
 
-console.log('Hola')
+
 documentOpciones(main.parametros(document.location.href));

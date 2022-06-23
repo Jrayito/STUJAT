@@ -69,5 +69,4 @@ $('#btn-reprobar').click(function () {
 });
 
 
-console.log('Hice modicación');
 parametros = main.parametros(document.location.href);
