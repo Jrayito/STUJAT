@@ -1,0 +1,606 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+body.open-modal{overflow: hidden;}
+a{text-decoration: none; color: black;}
+.logo{width: 21%;}
+.contenedor{
+    width: 80%;
+    margin: auto;
+}
+
+.asignar-tutor{display: none;}
+.asignar-tutor > p{margin-bottom: 20px; font-weight: bold;}
+.alerta{
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    margin-bottom: 10px;
+    /* background-color: red; */
+    color: white;
+    font-weight: bold;
+}
+.no-trayectoria{
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    margin-bottom: 10px;
+    background-color: #ef9a9a;
+    border-left: 5px solid #f44336;
+    color: white;
+    font-weight: bold;
+}
+header{
+    background-color: #2E7D32;
+    padding: 5px 0 0;
+    position: sticky;
+    top: 0;
+}
+footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #2E7D32;
+    padding: 5px 0;
+    color: white;
+    text-align: center;
+    font-size: 0.7rem;
+}
+header > div:nth-child(2){
+    background-color: #4CAF50;
+    font-size: 1.9rem;
+    color: white;
+    padding: 5px 0;
+}
+.formulario{
+    background-color: white;
+    padding: 50px;
+    margin: auto;
+    width: 30%;
+    border-radius: 5px;
+    margin-top: 50px;
+}
+input[type='radio']{margin-left: 15px;}
+input[type='text'], input[type='password'], input[type='number']{
+    outline: none;
+    padding: 10px 5px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+input[type='number']{text-align: center;}
+select{
+    outline: none;
+    padding: 10px 5px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+.btn{
+    /* display: block; */
+    padding: 5px 17px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+button{
+    display: flex;
+    align-items: center;
+}
+.btn-success{background-color: #2196f3;}
+.btn-add{background-color: #4CAF50;}
+.btn-edit{background-color: #FF9800;}
+.btn-delete{background-color: #f44336;}
+.info-asignaturas{
+    padding: 7px;
+    text-align: center;
+    border: none;
+    color: white;
+    background-color: #2196f3;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.info-asignaturas > i{margin-right: 0;}
+.avisos-asignaturas{
+    position: relative;
+    padding: 5px;
+}
+.notify{
+    position: absolute;
+    top: -0px;
+    right: -0px;
+    display: inline-block;
+    padding: 0.25em 0.6em;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    border-radius: 3rem;
+    color: #fff;
+    background-color: #ff2748;
+}
+.info-areas-formacion{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.area-formacion{display: flex; align-items: center;}
+.area-formacion > span{
+    width: 15px;
+    height: 15px;
+    background-color: #1565c0;
+    /* border-radius: 50%; */
+    margin-right: 5px;
+}
+.area-formacion > p{
+    display: inline-block;
+    margin-right: 17px;
+}
+.input-full{width: 100%;}
+.input-medio{width: 48%;}
+.input-mp{width: 64%;}
+.input-pequeno{width: 32%;}
+.input-mini{width: 9%;}
+nav{
+    width: 20%;
+    height: 100vh;
+    border-right: 1px solid #ccc;
+    background-color: white;
+    position: fixed;
+    top: auto;
+}
+nav > div:first-child{position: relative;}
+nav > div:first-child img{width: 100%;}
+nav > div:first-child h4{
+    position: absolute;
+    width: 100%;
+    padding: 5px 0 5px 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    bottom: 0px;
+}
+.active{background-color: #F3F3F3;}
+.servicios{margin-top: 15px;}
+.servicios span{margin-left: 10px; color: #ccc; font-size: 0.8rem;}
+ul li{ padding: 15px;}
+a{display: flex; align-items: center;}
+i{margin-right: 10px; font-size: 0.7rem;}
+main{margin-left: 20%;padding: 30px;}
+main h3{color: #ccc;}
+main > div:nth-child(2){
+    background-color: white;
+    margin-top: 15px;
+    padding: 15px;
+}
+.opciones{ display: flex; flex-direction: row-reverse; margin-bottom: 10px; margin-top: 10px;}
+.opciones > div > div{
+    border: 0px solid black;
+}
+.opciones button{margin: 0 5px;}
+table{
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+}
+table thead{background-color: #4CAF50;color: white;}
+
+tbody tr td{ padding: 15px 10px;}
+/* tbody > tr{cursor: pointer; text-align: center;} */
+/* Cambie esto en el index de administrador */
+.tabla-buscador table tbody > tr{cursor: pointer; text-align: center;}
+tbody tr:nth-child(even){background-color: #ccc;}
+th, td{padding: 10px 0;}
+.form-nuevo-usuario, .carrera, .form-nueva-asignatura, .informacion,
+.lista-tutorados, .form-nueva-carrera{
+    background-color: white;
+    padding: 60px;
+    margin-top: 15px;
+}
+form h3{margin-bottom: 15px; color: #ccc;}
+form > div:nth-child(6) {margin-top: 20px;}
+.label-in-block{display: inline-block; width: 48%; margin-bottom: 10px;}
+.label-block{display: block; margin-bottom: 10px;}
+.label-mp{display: inline-block; width: 64%; margin-bottom: 10px;}
+.label-pequeno{display: inline-block; width: 32%; margin-bottom: 10px;}
+.contenedor h4{color: #ccc; margin:30px 0; font-size: 2rem;}
+.informacion-carrera, .informacion-tuturado{display: flex;}
+.trayectoria{width: 200px;}
+.trayectoria a{
+    display: block; 
+    text-align: center;
+}
+.trayectoria a img{
+    display: block;
+    margin: 10px auto;
+    max-width: 50px;
+}
+.info-tabla-carrera, .info-tabla-tutorado{width: 1000px;}
+.info-tabla-carrera table{margin-top: 0}
+.info-tabla-carrera table tbody tr, .informacion table tbody tr,
+.info-tabla-tutorado table tbody tr{cursor:auto}
+.info-tabla-carrera table tbody tr td, .informacion table tbody tr td,
+.info-tabla-tutorado table tbody tr td{
+    text-align: left;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+}
+.listado{
+    display: flex;
+    flex-direction: row;
+    margin-top: -15px;
+}
+
+.listado > div{
+    margin-top: 5px;
+    padding: 10px;
+    min-width: 130px;
+    max-width: 160px;
+    font-size: 0.8rem;
+    border-right: 2px solid #ccc;
+}
+.listado > div li{
+    margin-top: 5px;
+}
+.listado > div > p{font-weight: bold; margin-bottom: 10px;}
+.info-tabla-carrera table tbody tr:nth-child(2) td:nth-child(2) input[type='text']{background-color: #ccc;}
+.info-tabla-carrera table tbody tr td input[type='text']{
+    outline: none;
+    border: none;
+    margin-bottom: 0px;
+    font-size: 0.9rem;
+}
+#form-re-asignatura > div:nth-child(8){
+    display: inline-block;
+    border-left: 2px solid #ccc;
+    padding-left: 40px;
+    margin-left: 40px;
+}
+.guardar{
+    margin: 15px 0;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.listado-asignaturas{margin-top: 15px;}
+.listado-asignaturas, .listado-optativas{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-bottom: 20px;
+    
+}
+.listado-asignaturas > div,
+.listado-optativas > div{
+    text-align: center;
+    padding: 10px 10px;
+    margin: 10px 5px;
+    /* cursor: pointer; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    border-radius: 5px;
+}
+.mostrar-mas, .mostrar-menos{ cursor: pointer; }
+.mostrar-mas:hover, .mostrar-menos:hover{text-decoration: underline;}
+input[type='file']{ display: block; margin: 20px 0;}
+.informacion-asignatura{
+    padding: 15px;
+    width: 25%;
+    height: 100vh;
+    background-color: white;
+    position: fixed;
+    top: auto;
+}
+.informacion-asignatura span{
+    display: block;
+    text-align: right;
+}
+.informacion-asignatura p{
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 900;
+}
+.informacion-asignatura > a {margin-top: 15px; font-weight: bold;}
+.informacion-asignatura > a > i{font-size: 1.3rem; margin-right: 3px;}
+.informacion-asignatura > table tr td{
+    border: 1px solid black;
+    padding: 5px;
+}
+.informacion-asignatura > table{
+    text-align: center;
+}
+.pdf embed, .pdf > div{
+    margin-left: 25%;
+    min-height: 700px;
+}
+.pdf > div{
+    padding: 60px 10px;
+}
+.informacion h5{
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: #90CAF9;
+    padding: 10px 0;
+}
+.informacion table{margin-top: 0;}
+.lista-tutorados{margin-top: 0; padding-top: 0;}
+.lista-tutorados > table tbody{cursor: pointer;}
+.modal, .modal-informacion{
+    width: 100%;
+    height: 110vh;
+    background-color: rgba(0,0,0,0.3);
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+.modal-content{
+    width: 60%;
+    margin: 160px auto 0 auto;
+    background-color: white;
+    padding: 15px;
+    position: relative;
+}
+.modal-content > button{
+    display: flex;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+}
+.modal-content h5{color: #ccc; font-size: 1.5rem;}
+.info-tabla-tutorado table tbody tr td:first-child{font-weight: 900;}
+.informacion-tuturado{margin-bottom: 25px;}
+.modal-content span, .modal-content p{display: block; margin-bottom: 2px;}
+.avance{
+    max-height: 30px;
+    display: flex;
+    text-align: center;
+    margin: 10px 0;
+    color: white;
+    font-weight: 900;
+}
+.avance > div{ padding: 5px 0; }
+.avance > div:nth-child(1) {background-color: #4CAF50;}
+.avance > div:nth-child(2) {background-color: #f44336;}
+
+.info-creditos tr td{width: 0%; text-align: center;}
+.info-creditos tbody tr td:nth-child(odd){
+    background-color: #ccc;
+}
+.content-trayectoria{
+    width: 95%;
+    min-height: 88vh;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+}
+.ciclo{margin: 0 7px; min-height: 88vh;}
+
+.ciclo select{
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 5px;
+}
+.ciclo > span{
+    display: block;
+    text-align: right;
+    font-size: 0.65rem;
+    margin-bottom: 15px;
+}
+
+
+#remover-asignaturas{display: none; transition: all ease 0.3s;}
+#remover-asignaturas > div{
+    opacity: 0;
+    visibility: hidden;
+    max-width: 0;
+    max-height: 0;
+}
+
+.ciclo > div > div {
+    position: relative;
+    padding: 10px 10px 5px 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    text-align: center;
+    max-width: 130px;
+    cursor: pointer;
+    /* z-index: 1; */
+}
+
+.ciclo > div > div > p{
+    font-size: 0.65rem;
+    text-align: left;
+    margin-top: 5px;
+}
+
+.asig-aprobada{
+    background-color: #e0e0e0;
+    border: 2px solid #263238;
+}
+.ciclo > div span{font-size: 0.75rem;}
+.ciclo > div button{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    max-width: 10px;
+    max-height: 10px;
+    background-color: white;
+    border: none;
+    cursor: pointer
+}
+.ciclo > div button i{font-size: 0.9rem;}
+.opciones h5{
+    font-size: 1.5rem;
+    color: #ccc;
+    padding: 10px;
+    margin-right: auto;
+}
+.ciclo > button{
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin: auto;
+    color: #ccc;
+    cursor: pointer;
+}
+.ciclo button i, .content-trayectoria button i{margin-right: 0;}
+.content-trayectoria > button{
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin: auto 0 auto 10px;
+    color: #ccc;
+    cursor: pointer;
+    transition: all ease .2s;
+}
+.add-asignatura{transition: all ease .2s;}
+.content-trayectoria > button:hover, .add-asignatura:hover{
+    border: 3px solid #1565c0;
+    color: white;
+    background-color: #1565c0;
+}
+.buscar-asignatura > input[type='text']{width: 61%;}
+.buscar-asignatura{margin: 30px 0 0 0;}
+.resultado-asignaturas, .asignaturas-sugerencia{
+    max-height: 230px;
+    overflow-y: scroll ;
+}
+
+.info-avisos > a{
+    margin-left: auto;
+    margin-bottom: 10px;
+}
+.asignaturas, .notificaciones{
+    width: 97%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    padding: 7px 10px;
+    border: 1px solid black;
+    cursor: pointer;
+    margin: 5px 0;
+}
+.notificaciones{ 
+    border: none;
+    border-bottom: 1px solid #1565c0;
+    margin: 0;
+}
+.mensaje-comple{
+    width: 97%;
+    border: 1px solid #ccc;
+    padding: 7px 10px;
+    display: none;
+}
+.mensaje-comple > p{margin: 10px 0;}
+.mensaje-comple > p:first-child{
+    text-align: right;
+    font-weight: bold;
+}
+.mensaje-comple > button {
+    margin-left: auto;
+}
+.checking-msm{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.checking-msm > i{
+    color:  #ccc;
+}
+.checking-msm[check] > i{
+    color: #1565c0;
+}
+.asignaturas i, .notificaciones i{margin-left: auto;}
+.modal-content h3{margin: 30px 0 15px 0;}
+.form-nueva-carrera{
+    margin-top: 20px;
+}
+#add-conocimiento{
+    display: inline-block;
+}
+.areas-conocimiento{
+    padding: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+.areas-conocimiento > div{
+    padding: 10px;
+    text-align: center;
+    font-size: 0.8rem;
+    min-width: 50px;
+    border: 1px solid black;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+#form-re-asignatura > div{ margin-top: 20px;}
+/* Modificaddo para formulario nueva carrera */
+h2{
+    margin: 20px 0;
+    color: #ccc;
+}
+.content-input-text > div{ display: inline-block;}
+.content-input-text > div > label{
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="radio"], input[type="checkbox"]{display: none;}
+.input-rc{
+    color: black;
+    padding: 12px 15px 12px 51px;
+    display: inline-block;
+    position: relative;
+    font-size: 1rem;
+    border-radius: 3px;
+    cursor: pointer;
+    -webkit-transition:  all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition:  all 0.3s ease;
+}
+
+.input-rc:before{
+    content: "";
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    background: none;
+    border: 2px solid black;
+    border-radius: 50%;
+    position: absolute;
+    left: 17px;
+}
+.check:before{border-radius: 3px;}
+
+input[type="radio"]:checked + label, 
+input[type="checkbox"]:checked + label{
+    padding: 12px 15px;
+    background: #2196f3;
+    border-radius: 2px;
+    color: #fff;
+}
+input[type="radio"]:checked + label:before, 
+input[type="checkbox"]:checked + label:before{
+    display: none;
+}
+
+button:disabled{
+    background-color: #ccc;
+}
+
+.modal-confirmacion{
+    width: 450px;
+    margin: auto;
+}
