@@ -52,10 +52,10 @@ const consultarAsignatura = (nombre, callback, filtro) => {
         }
     });
 }
-const consultarAreaConocimiento = (callback, filtro, index) => {
+const consultarAreaConocimiento = (callback, filtro, index, option) => {
     $.ajax({
         url: '../../php/Servicios/consultarAsignaturasArea.php', type: 'POST',
-        data: { index: index, filtro: filtro },
+        data: { index: index, filtro: filtro, option: option},
         success: function (resp) {
             callback(JSON.parse(resp));
         }
@@ -538,9 +538,19 @@ $('#opciones-busqueda').change(function (e) {
             }
         };
 
-        (index == 9)
-            ? consultarAsignatura(null, mostrarAsignaturas, asignaturasCargadas.toString())
-            : consultarAreaConocimiento(mostrarAsignaturas, asignaturasCargadas.toString(), index);
+        switch (index) {
+            case '9':
+                consultarAsignatura(null, mostrarAsignaturas, asignaturasCargadas.toString());
+                console.log('Entre en 9')
+                break;
+            case '10':
+                consultarAreaConocimiento(mostrarAsignaturas, asignaturasCargadas.toString(), index, 1);
+                console.log('entre en 10')
+                break;
+            default:
+                consultarAreaConocimiento(mostrarAsignaturas, asignaturasCargadas.toString(), index, 0);
+                break;
+        }
     }
 });
 
