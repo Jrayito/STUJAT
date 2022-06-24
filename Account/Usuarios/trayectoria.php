@@ -154,9 +154,8 @@
     <script src="../scripts/Sortable.js"></script>
     
     <script>
-        console.log(rolUsuario)
         $(document).ready(function(){
-            if(rolUsuario == 'docente' || rolUsuario == '' || parametros['alumno'] != user){
+            if((rolUsuario == 'docente' || rolUsuario == '') && parametros['alumno'] != user){
                 setTimeout(() => {
                     $('.ciclo > select').prop('disabled', true);
                     $('#add-ciclo, .add-asignatura').hide();
