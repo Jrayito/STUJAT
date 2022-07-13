@@ -154,7 +154,7 @@
         }
 
         public function getCountMsm(){
-            return count($this->json['avisos']);
+            return count($this->json['avisos'])-1;
         }
     
     }
