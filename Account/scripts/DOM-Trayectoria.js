@@ -11,10 +11,10 @@ let cicloAsignar = 0;
 let btnClick;
 let response = [];
 let sugeridas = [];
-let asignaturasCargadas = ['"FFFFF"'];
-let ciclosRespaldo;
+let asignaturasCargadas = ["'FFFFF'"];
+let ciclosRespaldo = [];
 
-let trayectoria = { "ciclos": [], "creditosAcumulados": 0, "avisos": [], "reprobadas": [] };
+let trayectoria = { "ciclos": [], "creditosAcumulados": 0, "avisos": [0], "reprobadas": [0] };
 
 const main = new Main();
 const ui = new UI();
@@ -48,6 +48,7 @@ const consultarAsignatura = (nombre, callback, filtro) => {
         url: '../../php/Servicios/pruebaAsignaturas.php', type: 'POST',
         data: { nombre: nombre, asignaturas: filtro },
         success: function (resp) {
+            console.log(JSON.parse(resp))
             callback(JSON.parse(resp));
         }
     });
@@ -199,7 +200,7 @@ const validarSeriacion = (antecedente, subsecuente, parent) => {
 }
 const mostrarAnuncios = (anuncios) => {
     // Desde sesión de administrador envie error porque no existe la pripiedad anuncion
-    $('.notify').text(anuncios.length);
+    $('.notify').text(anuncios.length - 1);
     if (anuncios.length) {
         ui.notificaciones(anuncios);
     } else {
@@ -264,7 +265,7 @@ const displayOpciones = parametros => {
                         const rep = Number(element.asignaturas[key].reprobadas);
 
                         creditosAsignados += Number(creditos);
-                        asignaturasCargadas.push('"' + clave + '"');
+                        asignaturasCargadas.push("'" + clave + "'");
 
                         $('#' + parent + ' > div').append(createAsignatura(css, text, clave, status, creditos, rep));
                         validarCiclo(parent);
@@ -319,7 +320,7 @@ const addFunciones = () => {
                     creditosAsignados += creditos;
                     trayectoria.ciclos[parent].creditos -= creditos;
                     $(`#${parent} > span`).text(`Créditos disponibles: ${trayectoria.ciclos[parent].creditos}`);
-                    asignaturasCargadas.push('"' + clave + '"');
+                    asignaturasCargadas.push("'" + clave + "'");
                     $(this).remove();
                     consultarSubsecuente(subsecuente);
                 }
@@ -435,17 +436,17 @@ const addFunciones = () => {
         validarCiclo(parent);
     });
 }
-const consultarSubsecuente = clave => {
+const consultarSubsecuente = subsecuente => {
     $('.asignaturas-sugerencia').html('');
-    if (clave != null) {
+    console.log(subsecuente)
+    if (subsecuente != null) {
         const asignaturasSubsecuentes = function (resp) {
             sugeridas.push(resp.data[0]);
             pintarAsignaturas(sugeridas, 'asignaturas-sugerencia');
-            asignaturasCargadas.push('"' + resp.data[0].clave + '"');
+            asignaturasCargadas.push("'" + resp.data[0].clave + "'");
             $('#search-asignatura').change();
         }
-
-        consultarAsignatura(clave, asignaturasSubsecuentes, asignaturasCargadas.toString());
+        consultarAsignatura(subsecuente.clave, asignaturasSubsecuentes, asignaturasCargadas.toString());
     } else { pintarAsignaturas(sugeridas, 'asignaturas-sugerencia'); }
 };
 
@@ -506,7 +507,7 @@ $('#nueva-trayectoria').click(function () {
     }
     trayectoria.ciclos.splice(contadorCiclo);
 
-    asignaturasCargadas = ['"FFFFF"'];
+    asignaturasCargadas = ["'FFFFF'"];
 
     creditosAsignados = 0;
     trayectoria.ciclos.forEach(ciclo => {
@@ -541,11 +542,9 @@ $('#opciones-busqueda').change(function (e) {
         switch (index) {
             case '9':
                 consultarAsignatura(null, mostrarAsignaturas, asignaturasCargadas.toString());
-                console.log('Entre en 9')
                 break;
             case '10':
                 consultarAreaConocimiento(mostrarAsignaturas, asignaturasCargadas.toString(), index, 1);
-                console.log('entre en 10')
                 break;
             default:
                 consultarAreaConocimiento(mostrarAsignaturas, asignaturasCargadas.toString(), index, 0);
@@ -555,12 +554,17 @@ $('#opciones-busqueda').change(function (e) {
 });
 
 $('#guardar-trayectoria').click(function () {
+    if(trayectoria.ciclos.length == 0){
+        ui.mostrarAlerta('Trayectoria invalida. Ingresar datos de asignaturas.', '#ef9a9a', '#f44336');
+        return 0;
+    }
     let index = trayectoria.ciclos.length - 1;
     while (trayectoria.ciclos[index].asignaturas.length == 0) {
         trayectoria.ciclos.splice(index, 1);
         index--;
     }
 
+    console.log(trayectoria);
     $.ajax({
         url: '../../php/Servicios/setTrayectoria.php', type: 'POST',
         data: {
