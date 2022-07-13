@@ -158,7 +158,7 @@
         }
 
         const listadoReprobadas = (listado) =>{
-            if(listado.length == 0){
+            if((listado.length - 1) == 0){
                 $('.listado > div').hide();
                 $('.listado').append('<p>No hay asignaturas reprobadas</p>')
             }else{
