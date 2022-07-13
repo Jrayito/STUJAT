@@ -44,7 +44,7 @@
             exit;
         }
 
-        echo "ok=Actualización correcta";
+        echo "ok=La informacion se actualizo correctamente";
         exit;
     }
 
