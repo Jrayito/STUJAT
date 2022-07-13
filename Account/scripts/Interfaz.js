@@ -159,16 +159,15 @@ class UI {
     }
 
     notificaciones(informacion) {
-        for (const anuncio in informacion) {
-            const datos = informacion[anuncio].split('&');
+        for (let index = 1; index < informacion.length; index++) {
+            const datos = informacion[index].split('&');
             let msm = this.setInformacion(datos[3], datos[0])
-            // return console.log(msm);
             msm = msm.split('&');
             const notify = $('<div/>', {
                 class: 'notificaciones', html: `<p>${msm[0]}</p>
                                                                         <i class="material-icons">arrow_drop_down</i>`}).
 
-                attr('index', anuncio);
+                attr('index', index);
 
             const btn = $('<button/>', { html: '<i class="material-icons">check</i>Leido', class: 'btn btn-success' })
             const fecha = new Date(datos[4])
@@ -201,6 +200,10 @@ class UI {
             }
 
             $('.info-avisos').append(notify, mensaje);
+            
         }
+        // for (const anuncio in informacion) {
+            
+        // }
     }
 }
