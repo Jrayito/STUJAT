@@ -15,8 +15,7 @@
     $cargadas = $_POST['asignaturas'];
 
     if($_SESSION['rol'] == 'admin'){
-        $sql = "SELECT * FROM asignaturas WHERE (nombre LIKE '%$nombre%' OR clave = '$nombre') AND clave NOT IN($cargadas) 
-                    AND tipo <> 'optativa'";
+        $sql = "SELECT * FROM asignaturas WHERE (nombre LIKE '%$nombre%' OR clave = '$nombre') AND clave NOT IN($cargadas) AND tipo <> 'optativa'";
     }else{
         $sql = "SELECT * FROM asignaturas WHERE (nombre LIKE '%$nombre%' OR clave = '$nombre') AND (clave NOT IN($cargadas) AND optativa = 0)";
     }
