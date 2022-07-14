@@ -14,7 +14,7 @@
     $op = $_POST['option'];
 
     $sql = (intval($op)) 
-            ? "SELECT * FROM asignaturas WHERE ciclo = 1"
+            ? "SELECT * FROM asignaturas WHERE ciclo = 1 AND (clave NOT IN($cargadas) AND optativa = 0)"
             : "SELECT * FROM asignaturas 
                 WHERE areaConocimiento = $index 
                 AND (clave NOT IN ($cargadas) AND optativa = 0)";
