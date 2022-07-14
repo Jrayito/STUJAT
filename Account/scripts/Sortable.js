@@ -107,13 +107,15 @@ const activeRemover = () => {
         },
         onAdd: (evt) => {
             const clave = $(evt.item).attr('data-id')
-            const text = $(evt.item).text();
+            const text = $(evt.item).find('span').text();
             const oldCiclo = $(evt.from).parent().attr('id');
             const inforAsignatura = buscarAsignatura(clave, oldCiclo);
             $(evt.item).remove();
 
-            const indexRemover = asignaturasCargadas.indexOf('"' + clave + '"');
+            console.log(asignaturasCargadas)
+            const indexRemover = asignaturasCargadas.indexOf("'" + clave + "'");
             asignaturasCargadas.splice(indexRemover, 1);
+            console.log(asignaturasCargadas)
             removerAsignatura(clave, oldCiclo);
             trayectoria.ciclos[oldCiclo].creditos = Number(trayectoria.ciclos[oldCiclo].creditos) + Number(inforAsignatura.creditos);
             creditosAsignados -=  Number(inforAsignatura.creditos);
@@ -126,6 +128,7 @@ const activeRemover = () => {
                 asignaturasCargadas.push('"' + resp.data[0].clave + '"');
                 $('#search-asignatura').change();
             }
+            console.log(text);
             consultarAsignatura(text, mostrarRemovia, asignaturasCargadas.toString())
         }
     });
