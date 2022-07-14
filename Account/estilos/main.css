@@ -292,6 +292,13 @@ input[type='file']{ display: block; margin: 20px 0;}
     position: fixed;
     top: auto;
 }
+.info-extra-asignatura{
+    color: #1565c0;
+    text-align: left;
+}
+.info-extra-asignatura.no-corto{
+    color: #ff2748;
+}
 .informacion-asignatura span{
     display: block;
     text-align: right;
@@ -301,6 +308,7 @@ input[type='file']{ display: block; margin: 20px 0;}
     text-align: center;
     margin-top: 10px;
     font-weight: 900;
+    margin-bottom: 15px;
 }
 .informacion-asignatura > a {margin-top: 15px; font-weight: bold;}
 .informacion-asignatura > a > i{font-size: 1.3rem; margin-right: 3px;}
@@ -308,6 +316,7 @@ input[type='file']{ display: block; margin: 20px 0;}
     border: 1px solid black;
     padding: 5px;
 }
+
 .informacion-asignatura > table{
     text-align: center;
 }
