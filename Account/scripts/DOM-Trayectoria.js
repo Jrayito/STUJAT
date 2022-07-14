@@ -527,6 +527,7 @@ $('#nueva-trayectoria').click(function () {
 $('.info-asignaturas').click(function () {
     $('.modal-informacion').css({ 'opacity': '1', 'visibility': 'visible' });
     $('.modal-content').addClass('animate__animated animate__bounceIn');
+    $('body').addClass('open-modal');
 });
 
 $('#opciones-busqueda').change(function (e) {

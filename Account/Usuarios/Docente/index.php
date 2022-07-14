@@ -181,7 +181,7 @@
         $('.lista-tutorados > table tbody tr').click(function(e){
             const tutorado = $(this).attr('data-tutorado');
 
-
+            $('body').addClass('open-modal');
             $.ajax({
                 url: '../../../php/Servicios/getTutorado.php', type: 'POST', data: {tutorado: tutorado}, 
                 success: function(resp){
