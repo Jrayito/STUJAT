@@ -137,4 +137,6 @@ $('#update-trayectoria').click(function (e) {
     $('.ciclo > div > div').removeClass('animate__animated animate__fadeInDown');
     for (let x = 0; x < trayectoria.ciclos.length; x++) { activeDrop(x); }
     activeRemover();
+    $('.ciclo > div > div').css('cursor', 'all-scroll');
+    $('.ciclo > div > div.asig-aprobada').css('cursor', 'no-drop');
 });
