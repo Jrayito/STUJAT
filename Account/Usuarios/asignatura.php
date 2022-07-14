@@ -115,7 +115,13 @@
                 echo "<p>Sin información disponible.</p>";
             }
         ?>
-        
+        <div class="info-extra-asignatura <?php echo  $row[0]->ciclo ? "" : "no-corto" ?>">
+            <p><?php echo $row[0]->ciclo 
+                        ? "Asignatura disponible para ciclo corto" 
+                        : "Asignatura no disponible para ciclo corto" ;
+                ?>
+            </p>
+        </div>
     </div>
 
     
