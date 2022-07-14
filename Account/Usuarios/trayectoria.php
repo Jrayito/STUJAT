@@ -128,7 +128,7 @@
             <div>
                 <h2>Avisos</h2>
                 <div class="info-avisos">
-                    <a href="http://localhost/proyecto/php/Archivos/REGLAMENTO ESCOLAR.pdf" target="_blank">Ver Reglamento Escolar</a>
+                    <a href="http://localhost/proyecto/php/Archivos/REGLAMENTO_ESCOLAR.pdf" target="_blank">Ver Reglamento Escolar</a>
                 </div>
             </div>
         </div>
