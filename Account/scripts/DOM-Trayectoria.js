@@ -254,7 +254,11 @@ const displayOpciones = parametros => {
                     addCiclo($('#add-ciclo'));
 
                     const parent = contadorCiclo;
-
+                    
+                    element.type == 'largo' 
+                        ? $(`#${parent} > select > option[value="1"]`).attr('selected', true)
+                        :$(`#${parent} > select > option[value="2"]`).attr('selected', true)
+                    
                     for (const key in element.asignaturas) {
 
                         const clave = element.asignaturas[key].clave;
