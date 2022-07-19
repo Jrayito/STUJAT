@@ -1,5 +1,10 @@
 <?php
+    require('../../../php/Sesion.php');
+
     session_start();
+
+    $sesion = new Sesion();
+    $sesion->comprobarInactividad();
     // SE COMPRUEBA QUE LA SESION NO EXISTE O SI EL ROL ES DIFERENTE 
     // AL USUARIO SE REDIRECCIONA A LA PAGINA DE INICIO
     if(!isset($_SESSION['usuario']) || $_SESSION['rol'] != 'admin'){

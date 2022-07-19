@@ -5,11 +5,11 @@
     require('../../../php/Clases/Trayectoria.php');
     require('../../../php/Sesion.php');
     session_start();
-
+    $sesion = new Sesion();
+    $sesion->comprobarInactividad();
 
     // Se valida que la sesion exista y que el rol no sea diferente a tutor
     if(!isset($_SESSION['usuario']) || $_SESSION['rol'] != 'docente'){
-        $sesion = new Sesion();
         $sesion->terminarSesion();
         // header('location: ../../Login/');
         exit;

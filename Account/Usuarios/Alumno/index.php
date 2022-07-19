@@ -6,8 +6,11 @@
     require('../../../php/Clases/Tutor.php');
     require('../../../php/Clases/Carrera.php');
     require('../../../php/Clases/Trayectoria.php');
+    require('../../../php/Sesion.php');
 
     session_start();
+    $sesion = new Sesion();
+    $sesion->comprobarInactividad();
     // Se valida que la sesion exista y que el rol no sea diferente a administrador
     if(!isset($_SESSION['usuario']) || $_SESSION['rol'] != 'alumno'){
         header('location: ../../Login/');

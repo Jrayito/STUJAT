@@ -2,14 +2,20 @@
     session_start();
     include('../../php/Conexion.php');
     include('../../php/Clases/Carrera.php');
+    require('../../../php/Sesion.php');
 
     $colores = Array('#f8bbd0', '#e1bee7', '#c5cae9', '#bbdefb', '#c8e6c9', '#f0f4c3', '#ffe0b2', '#ffccbc', '#b2dfdb');
 
     $conexion = new Conexion();
     $carrera = new Carrera();
+    $sesion = new Sesion();
     // $rol = $_SESSION['rol'];
     $carrera->consultarCarrera($conexion, $_GET['carrera']);
     $areasConocimiento = $carrera->getAreaConocimiento();
+
+    if(isset($_SESSION{'usuario'})){
+        $sesion->comprobarInactividad();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">

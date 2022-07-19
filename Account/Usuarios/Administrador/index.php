@@ -2,9 +2,13 @@
     require('../../../php/Clases/Usuarios.php');
     require('../../../php/Clases/Administrador.php');
     require('../../../php/Conexion.php');
+    require('../../../php/Sesion.php');
     
     session_start();
+    
     // Se valida que la sesion exista y que el rol no sea diferente a administrador
+    $sesion = new Sesion();
+    $sesion->comprobarInactividad();
     if(!isset($_SESSION['usuario']) || $_SESSION['rol'] != 'admin'){
         header('location: ../../Login/');
         exit;

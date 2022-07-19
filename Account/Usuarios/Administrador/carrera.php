@@ -1,12 +1,15 @@
 <?php
     include('../../../php/Conexion.php');
     include('../../../php/Clases/Trayectoria.php');
+    require('../../../php/Sesion.php');
 
+    session_start();
     
     $conexion = new Conexion();
     $trayectoria = new Trayectoria();
+    $sesion = new Sesion();
     
-    session_start();
+    $sesion->comprobarInactividad();
     // Se valida que la sesion exista y que el rol no sea diferente a administrador
     if(!isset($_SESSION['usuario']) || $_SESSION['rol'] != 'admin'){
         header('location: ../../Login/');
