@@ -8,8 +8,11 @@
 
         public function guardarSesion($usuario, $rol){
             session_start();
+            date_default_timezone_set('America/Mexico_City');
+
             $_SESSION['usuario'] = $usuario;
             $_SESSION['rol'] = $rol;
+            $_SESSION['acceso'] = Date('Y-n-j h:i:s');
         }
 
         public function terminarSesion(){
@@ -32,6 +35,24 @@
                         header('location: ../../Account/Usuarios/Alumno/');
                         break;
                 }
+            }
+        }
+
+        public function comprobarInactividad(){
+            date_default_timezone_set('America/Mexico_City');
+
+            $ultimoAcceso = $_SESSION['acceso'];
+            $ahora = Date('Y-n-j h:i:s');
+            $tiempo_transcurrido = (strtotime($ahora) - strtotime($ultimoAcceso));
+
+            // Se compara el tiempo
+            if($tiempo_transcurrido >= 60){
+                // se destruye la sesion
+                session_destroy();
+                header('Location: http://localhost/Proyecto/Account/Login/');
+            }else{
+                $_SESSION['acceso'] = $ahora;
+                echo '<p>Hora de inicio'.$_SESSION['acceso'].'</p>';
             }
         }
 
