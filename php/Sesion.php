@@ -46,13 +46,12 @@
             $tiempo_transcurrido = (strtotime($ahora) - strtotime($ultimoAcceso));
 
             // Se compara el tiempo
-            if($tiempo_transcurrido >= 60){
+            if($tiempo_transcurrido >= 600){
                 // se destruye la sesion
                 session_destroy();
                 header('Location: http://localhost/Proyecto/Account/Login/');
             }else{
                 $_SESSION['acceso'] = $ahora;
-                echo '<p>Hora de inicio'.$_SESSION['acceso'].'</p>';
             }
         }
 
