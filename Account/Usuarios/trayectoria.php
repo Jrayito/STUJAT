@@ -2,7 +2,7 @@
     session_start();
     include('../../php/Conexion.php');
     include('../../php/Clases/Carrera.php');
-    require('../../../php/Sesion.php');
+    require('../../php/Sesion.php');
 
     $colores = Array('#f8bbd0', '#e1bee7', '#c5cae9', '#bbdefb', '#c8e6c9', '#f0f4c3', '#ffe0b2', '#ffccbc', '#b2dfdb');
 
