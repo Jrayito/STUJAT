@@ -46,7 +46,7 @@
             $tiempo_transcurrido = (strtotime($ahora) - strtotime($ultimoAcceso));
 
             // Se compara el tiempo
-            if($tiempo_transcurrido >= 600){
+            if($tiempo_transcurrido >= 3000){
                 // se destruye la sesion
                 session_destroy();
                 header('Location: http://localhost/Proyecto/Account/Login/');
