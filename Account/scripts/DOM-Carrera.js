@@ -48,7 +48,7 @@ $('#guardar-carrera').click(function (e) {
         return 0;
     }
 
-    if (info.creditos < 400 || info.creditos > 450) {
+    if (info.creditos < 300 || info.creditos > 450) {
         ui.mostrarAlerta('Créditos invalidos', '#ef9a9a', '#f44336');
         $('#guardar-carrera').removeAttr('disabled');
         return;
@@ -86,7 +86,7 @@ $('#areaConocimiento').change(function (e) {
         $('#areaConocimiento').val('').focus();
     }
 
-    if (cont == 5) { $('#guardar-carrera').removeAttr('disabled'); }
+    if (cont == 8) { $('#guardar-carrera').removeAttr('disabled'); }
 })
 
 // Funciones para inciar el documento
