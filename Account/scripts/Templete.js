@@ -10,6 +10,7 @@ const cargarHead = () => {
     const font = $('<link/>', {rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: ''});
     const roboto = $('<link/>', {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'});
     const css = $('<link/>', {rel: 'stylesheet', href: 'http://localhost/proyecto/Account/estilos/main.css'});
+    const media = $('<link/>', {rel: 'stylesheet', href: 'http://localhost/proyecto/Account/estilos/media.css'});
     const animate = $('<link/>', {rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css'});
 
     $('head').append(css, google, font, roboto, icons, animate);
