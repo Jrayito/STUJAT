@@ -22,14 +22,29 @@
     </style>
     <title>Sistema de trayectorias académicas</title>
 </head>
+<style>
+    .content-index-info{
+        display: flex;
+        flex-direction: row;
+    }
+    .link-manual-usuario{
+        font-size: 1rem;
+        color: white;
+        flex-direction: row-reverse;
+    }
+    .content-index-info > h6, .content-index-info > a{
+        flex: auto;
+    }
+</style>
 <body>
     <header>
         <div class="contenedor">
-            <a href="./index.html"><img src="../recursos/escudo.png" alt="" class="logo"></a>
+            <a href="./"><img src="../recursos/escudo.png" alt="" class="logo"></a>
         </div>
         <div>
-            <div class="contenedor">
+            <div class="contenedor content-index-info">
                 <h6>Sistema de trayectorias académicas</h6>
+                <a href="../../php/Archivos/Manual_de_usuario.pdf" download class="link-manual-usuario"><i class="material-icons" style="display: none;">file_download</i>Descargar Manual de usuario</a>
             </div>
         </div>
     </header>
