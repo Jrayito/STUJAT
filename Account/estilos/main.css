@@ -151,9 +151,22 @@ nav{
     position: fixed;
     top: auto;
 }
-nav > div:first-child{position: relative;}
-nav > div:first-child img{width: 100%;}
-nav > div:first-child h4{
+.toggle-menu{background-color: #4CAF50;}
+#label-check-menu{
+    /* position: absolute; */
+    display: none; 
+    cursor: pointer;
+    width: 40px;
+    z-index: 10;
+}
+#check-menu{display: none;}
+#check-menu  ~ label i{
+    font-size: 40px;
+    color: white;
+}
+nav > .menu-none div:first-child{position: relative;}
+nav > .menu-none div:first-child img{width: 100%;}
+nav > .menu-none div:first-child h4{
     position: absolute;
     width: 100%;
     padding: 5px 0 5px 10px;
@@ -593,15 +606,15 @@ input[type="radio"], input[type="checkbox"]{display: none;}
 }
 .check:before{border-radius: 3px;}
 
-input[type="radio"]:checked + label, 
-input[type="checkbox"]:checked + label{
+input[type="radio"]:checked:not(#check-menu) + label, 
+input[type="checkbox"]:checked:not(#check-menu) + label{
     padding: 12px 15px;
     background: #2196f3;
     border-radius: 2px;
     color: #fff;
 }
-input[type="radio"]:checked + label:before, 
-input[type="checkbox"]:checked + label:before{
+input[type="radio"]:checked:not(#check-menu) + label:before, 
+input[type="checkbox"]:checked:not(#check-menu) + label:before{
     display: none;
 }
 
