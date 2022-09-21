@@ -26,7 +26,6 @@
 <style>
     .content-index-info{
         display: flex;
-        flex-direction: row;
     }
     .link-manual-usuario{
         font-size: 1rem;
