@@ -37,25 +37,33 @@
 </head>
 
 <body style="background-color: #F3F3F3;">
-    <header></header>
+    <header>
+        
+    </header>
+    <div class="toggle-menu">
+    <input type="checkbox" name="" id="check-menu">
+    <label for="check-menu" id="label-check-menu"> <i class="material-icons">menu</i></label>
+    </div>
     <nav>
-        <div>
-            <img src="../../recursos/banner.jpg" alt="">
-            <h4><?php echo $administrador->getFullName() ?></h4>
-        </div>
+        <div class="menu-none">
+            <div>
+                <img src="../../recursos/banner.jpg" alt="">
+                <h4><?php echo $administrador->getFullName() ?></h4>
+            </div>
 
-        <div class="servicios">
-            <span>SERVICIOS</span>
-            <ul>
-                <li data='inicio' class="active"><a href="#inicio"><i class="material-icons">home</i>Inicio</a></li>
-                <li data=''><a href="#usuarios"><i class="material-icons">group</i>Usuarios</a></li>
-                <li data=''><a href="#carreras"><i class="material-icons">business</i>Carreras</a></li>
-                <li data=''><a href="#asignaturas"><i class="material-icons">library_books</i>Asignaturas</a></li>
-            </ul>
-        </div>
-        <a href="../../../php/Servicios/terminarSesion.php" class="btn btn-success" id="terminar-sesion">
+            <div class="servicios">
+                <span>SERVICIOS</span>
+                <ul>
+                    <li data='inicio' class="active"><a href="#inicio"><i class="material-icons">home</i>Inicio</a></li>
+                    <li data=''><a href="#usuarios"><i class="material-icons">group</i>Usuarios</a></li>
+                    <li data=''><a href="#carreras"><i class="material-icons">business</i>Carreras</a></li>
+                    <li data=''><a href="#asignaturas"><i class="material-icons">library_books</i>Asignaturas</a></li>
+                </ul>
+            </div>
+            <a href="../../../php/Servicios/terminarSesion.php" class="btn btn-success" id="terminar-sesion">
                 <i class="material-icons">exit_to_app</i>Cerrar Sesión
-             </a>
+            </a>
+        </div>
     </nav>
 
     <main>
@@ -84,7 +92,6 @@
         </div>
     </main>
 
-
     <!-- Footer de la pàgina  -->
     <footer>
         <span>Av. Universidad s/n, Zona de la Cultura, Col. Magisterial, Vhsa, Centro, Tabasco, Mex. C.P. 86040. Tel (993) 358 15 00</span>
@@ -96,15 +103,18 @@
     <script>cargarTemplete('');</script>
     <script src="../../scripts/Interfaz.js"></script>
     <script src="../../scripts/Main.js"></script>
-
-    <!-- <script src="../../scripts/general.js"></script>
-    
-    <script src="../../scripts/clases/usuarios.js"></script>
-    <script src="../../scripts/clases/administrador.js"></script>
-    <script src="../../scripts/clases/carreras.js"></script>
-    <script src="../../scripts/clases/asignatura.js"></script> -->
-
     <script src="../../scripts/DOM-AD.js"></script>
+    <script>
+
+    $('#check-menu').change(function(){
+        $(this).is(':checked') 
+            ? $('nav').animate({'left': '0'}, 'normal')
+            : $('nav').animate({'left': '-500px'}, 'normal')
+    });
+
+    $('#check-menu').change();
+
+    </script>
 </body>
 
 </html>
