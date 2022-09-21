@@ -13,7 +13,7 @@ const cargarHead = () => {
     const media = $('<link/>', {rel: 'stylesheet', href: 'http://localhost/proyecto/Account/estilos/media.css'});
     const animate = $('<link/>', {rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css'});
 
-    $('head').append(css, google, font, roboto, icons, animate);
+    $('head').append(css, google, font, roboto, icons, animate, media);
 }
 
 const cargarHeader = (texto) => {
