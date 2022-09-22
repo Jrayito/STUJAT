@@ -7,7 +7,7 @@ const usuarios = {
 let divisiones = [];
 
 const tablaUsuarios = ['Nombre(s)', 'Apellidos', 'Correo', 'División Academica'];
-const tablaCarreras = ['Carrera', 'Division Academica', 'Crétidos'];
+const tablaCarreras = ['Carrera', 'Division Academica', 'Crédidos'];
 const tablaAsignaturas = ['Clave', 'Nombre', 'Carrera', 'Tipo', 'Créditos'];
 
 const ui = new UI();
@@ -75,6 +75,7 @@ $('.servicios ul li').click(function (event) {
         iniciar = 1;
     }
     // Se resetea el cuerpo de la tabla por si hay resultaddos
+    $('.tabla-buscador table thead').html('');
     $('.tabla-buscador table tbody').html('<tr><tr/>');
 
     switch (buscador) {
@@ -84,18 +85,28 @@ $('.servicios ul li').click(function (event) {
             break;
         case '#usuarios':
             ui.cambiarOpcion('.buscador select', usuarios, 'Usuario', './nuevoUsuario.php', '');
-            ui.cambiarTabla('.tabla-buscador', tablaUsuarios);
+            if(screen.width > 576){
+                ui.cambiarTabla('.tabla-buscador', tablaUsuarios);
+            }
             break;
         case '#carreras':
             ui.cambiarOpcion('.buscador select', divisiones, 'Carrera', './nuevaCarrera.php', 'División Academica ');
-            $('.opciones a').attr('id', 'form-carrera');
-            ui.cambiarTabla('.tabla-buscador', tablaCarreras);
+            // $('.opciones a').attr('id', 'form-carrera');
+            if(screen.width > 576){
+                ui.cambiarTabla('.tabla-buscador', tablaCarreras);
+            }
             break;
         case '#asignaturas':
             ui.cambiarOpcion('.buscador select', [], 'Asignatura', './nuevaAsignatura.php?up=0', '');
-            ui.cambiarTabla('.tabla-buscador', tablaAsignaturas);
+            if(screen.width > 576){
+                ui.cambiarTabla('.tabla-buscador', tablaAsignaturas);
+            }
+            
             break;
     }
+
+    $('#check-menu').prop('checked', false);
+    $('#check-menu').change();
 });
 
 $('.tabla-buscador table').click(function (e) {
