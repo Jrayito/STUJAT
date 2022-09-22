@@ -38,6 +38,7 @@ header{
     padding: 5px 0 0;
     position: sticky;
     top: 0;
+    z-index: 10;
 }
 footer{
     width: 100%;
@@ -150,7 +151,12 @@ nav{
     background-color: white;
     position: fixed;
     top: auto;
+    margin-left: 0;
 }
+.img-banner{
+    width: 100%;
+}
+.img-banner img {max-width: 100%; height: auto;}
 .toggle-menu{background-color: #4CAF50;}
 #label-check-menu{
     /* position: absolute; */
@@ -158,6 +164,7 @@ nav{
     cursor: pointer;
     width: 40px;
     z-index: 10;
+    display: none;
 }
 #check-menu{display: none;}
 #check-menu  ~ label i{
@@ -165,7 +172,7 @@ nav{
     color: white;
 }
 nav > .menu-none div:first-child{position: relative;}
-nav > .menu-none div:first-child img{width: 100%;}
+/* nav > .menu-none div:first-child{width: 100%; height: 200px;} */
 nav > .menu-none div:first-child h4{
     position: absolute;
     width: 100%;
@@ -177,6 +184,7 @@ nav > .menu-none div:first-child h4{
 .active{background-color: #F3F3F3;}
 .servicios{margin-top: 15px;}
 .servicios span{margin-left: 10px; color: #ccc; font-size: 0.8rem;}
+.buscador > select {width: 20%;}
 ul li{ padding: 15px;}
 a{display: flex; align-items: center;}
 i{margin-right: 10px; font-size: 0.7rem;}
