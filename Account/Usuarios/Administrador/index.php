@@ -46,7 +46,7 @@
     </div>
     <nav>
         <div class="menu-none">
-            <div>
+            <div class="img-banner">
                 <img src="../../recursos/banner.jpg" alt="">
                 <h4><?php echo $administrador->getFullName() ?></h4>
             </div>
@@ -75,7 +75,7 @@
             <div class="alerta"></div>
             <div class="buscador">
                 <input type="text" placeholder="Buscar usuario..." class="input-medio">
-                <select style="width: 20%;">
+                <select>
                 </select>
             </div>
 
@@ -84,7 +84,7 @@
                     <thead>
                     </thead>
                     <tbody>
-
+                        
                     </tbody>
                 </table>
             </div>
@@ -100,21 +100,23 @@
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous">
     </script>
     <script src="../../scripts/Templete.js"></script>
+    <script>
+
+    $('#check-menu').change(function(){
+        if($('#label-check-menu').css('display') == 'block'){
+            $(this).is(':checked') 
+                ? $('nav').animate({'margin-left': '0'}, 'normal')
+                : $('nav').animate({'margin-left': '-500px'}, 'normal')
+        }
+    });
+
+    </script>
+
     <script>cargarTemplete('');</script>
     <script src="../../scripts/Interfaz.js"></script>
     <script src="../../scripts/Main.js"></script>
     <script src="../../scripts/DOM-AD.js"></script>
-    <script>
 
-    $('#check-menu').change(function(){
-        $(this).is(':checked') 
-            ? $('nav').animate({'left': '0'}, 'normal')
-            : $('nav').animate({'left': '-500px'}, 'normal')
-    });
-
-    $('#check-menu').change();
-
-    </script>
 </body>
 
 </html>
