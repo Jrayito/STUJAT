@@ -54,53 +54,114 @@ class UI {
     }
 
     pintarTablaUsuarios(data) {
-        console.log(data);
         $('.tabla-buscador table tbody').html('<tr></tr>');
+        let html = '';
+        if(screen.width <= 576){
+            for (let x = 0; x < data.data.length; x++) {
+                html += `<tr data-id="${data.data[x].usuario}" class="title-table">
+                                <td colspan="2">${data.data[x].nombre} ${data.data[x].apellidos}</td>
+                            </tr>
+                            <tr data-id="${data.data[x].usuario}">
+                                <td>Matricula</td>
+                                <td>${data.data[x].usuario}</td>
+                            </tr>
+                            <tr data-id="${data.data[x].usuario}">
+                                <td>Correo</td>
+                                <td>${data.data[x].correo}</td>
+                            </tr>
+                            <tr data-id="${data.data[x].usuario}">
+                                <td>División Académica</td>
+                                <td>División Académica de ${data.data[x].acedemica}</td>
+                            </tr>`;
+            }
 
-        for (let x = 0; x < data.data.length; x++) {
-            const tr = $('<tr/>').attr('data-id', data.data[x].usuario);
-            tr.append(`<td>${data.data[x].nombre}</td>`);
-            tr.append(`<td>${data.data[x].apellidos}</td>`);
-            tr.append(`<td>${data.data[x].correo}</td>`);
-            tr.append(`<td>División Académica ${data.data[x].acedemica}</td>`);
+            $('.tabla-buscador table tbody').html(html);
 
-            $('.tabla-buscador table tbody').append(tr);
+        }else if(screen.width >= 1200){
+            for (let x = 0; x < data.data.length; x++) {
+                const tr = $('<tr/>').attr('data-id', data.data[x].usuario);
+                tr.append(`<td>${data.data[x].nombre}</td>`);
+                tr.append(`<td>${data.data[x].apellidos}</td>`);
+                tr.append(`<td>${data.data[x].correo}</td>`);
+                tr.append(`<td>División Académica ${data.data[x].acedemica}</td>`);
+    
+                $('.tabla-buscador table tbody').append(tr);
+            }
         }
-
     }
     pintarTablaCarreras(data) {
         $('.tabla-buscador table tbody').html('<tr></tr>');
-
-        for (let x = 0; x < data.data.length; x++) {
-            const tr = $('<tr/>');
-
-            tr.attr('data-id', data.data[x].id);
-
-            tr.append(`<td>${data.data[x].nombre}</td>`);
-            tr.append(`<td>División Académica ${data.data[x].academica}</td>`);
-            tr.append(`<td>${data.data[x].creditos}</td>`);
-
-            $('.tabla-buscador table tbody').append(tr);
+        let html = '';
+        if(screen.width <= 576){
+            for (let x = 0; x < data.data.length; x++) {
+                html += `<tr data-id="${data.data[x].id}" class="title-table">
+                            <td colspan="2">${data.data[x].nombre}</td>
+                        </tr>
+                        <tr data-id="${data.data[x].id}">
+                            <td>División Académica</td>
+                            <td>División Académica ${data.data[x].academica}</td>
+                        </tr>
+                        <tr data-id="${data.data[x].id}">
+                            <td>Créditos</td>
+                            <td>${data.data[x].creditos}</td>
+                        </tr>`;
+            }
+            $('.tabla-buscador table tbody').html(html);
+        }else if(screen.width >= 1200){
+            for (let x = 0; x < data.data.length; x++) {
+                const tr = $('<tr/>');
+    
+                tr.attr('data-id', data.data[x].id);
+    
+                tr.append(`<td>${data.data[x].nombre}</td>`);
+                tr.append(`<td>División Académica ${data.data[x].academica}</td>`);
+                tr.append(`<td>${data.data[x].creditos}</td>`);
+    
+                $('.tabla-buscador table tbody').append(tr);
+            }
         }
-
-
     }
     pintarTablaAsignaturas(data) {
         $('.tabla-buscador table tbody').html('<tr></tr>');
-
-        for (let x = 0; x < data.data.length; x++) {
-            const tr = $('<tr/>');
-
-            tr.attr('data-id', data.data[x].clave);
-
-            tr.append(`<td>${data.data[x].clave}</td>`);
-            tr.append(`<td>${data.data[x].nombre}</td>`);
-            tr.append(`<td>${data.data[x].carrera}</td>`);
-            tr.append(`<td>${data.data[x].tipo}</td>`);
-            tr.append(`<td>${data.data[x].creditos}</td>`);
-
-            $('.tabla-buscador table tbody').append(tr);
-
+        let html = '';
+        if(screen.width <= 576){
+            for (let x = 0; x < data.data.length; x++) {
+               html += `<tr data-id="${data.data[x].clave}" class="title-table">
+                            <td colspan="2">${data.data[x].nombre}</td>
+                        </tr>
+                        <tr data-id="${data.data[x].clave}">
+                            <td>Clave</td>
+                            <td>${data.data[x].clave}</td>
+                        </tr>
+                        <tr data-id="${data.data[x].clave}">
+                            <td>Carrera</td>
+                            <td>${data.data[x].carrera}</td>
+                        </tr>
+                        <tr data-id="${data.data[x].clave}">
+                            <td>Tipo</td>
+                            <td>${data.data[x].tipo}</td>
+                        </tr>
+                        <tr data-id="${data.data[x].clave}">
+                            <td>Créditos</td>
+                            <td>${data.data[x].creditos}</td>
+                        </tr>`;
+            }
+            $('.tabla-buscador table tbody').html(html);
+        }else if(screen.width >= 1200){
+            for (let x = 0; x < data.data.length; x++) {
+                const tr = $('<tr/>');
+    
+                tr.attr('data-id', data.data[x].clave);
+    
+                tr.append(`<td>${data.data[x].clave}</td>`);
+                tr.append(`<td>${data.data[x].nombre}</td>`);
+                tr.append(`<td>${data.data[x].carrera}</td>`);
+                tr.append(`<td>${data.data[x].tipo}</td>`);
+                tr.append(`<td>${data.data[x].creditos}</td>`);
+    
+                $('.tabla-buscador table tbody').append(tr);
+    
+            }
         }
     }
 
