@@ -1,5 +1,7 @@
  /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
+   body{overflow-x: hidden;}
+   footer{display: none;}
    .contenedor{width: 100%; padding: 0 10px;}
    .logo{width: 40%;}
    .content-index-info{flex-direction: column;}
@@ -7,8 +9,15 @@
    .content-index-info > a{margin-top: 5px;}
    .formulario{width: 80%;}
    .btn{padding: 10px 20px;}
-   nav{width: 100%}
+   .toggle-menu{position: sticky; top: auto}
+   nav{width: 100%; margin-left: -500px;}
    #label-check-menu{display: block;}
+   main{margin-left: 0; padding: 30px 10px;}
+   .input-full, .input-medio, .input-mp, .input-pequeno, .input-mini{width: 100%;}
+   .buscador > select{width: 100%;}
+   tbody tr:nth-child(even){background-color: transparent; color: black;}
+   .title-table{background-color: #4CAF50 !important; color: white !important;}
+   table > tbody > tr > td{border: 1px solid #ccc}
 }
 
  /* Medium devices (tablets, 768px and up) */
