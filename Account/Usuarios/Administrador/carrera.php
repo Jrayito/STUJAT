@@ -66,16 +66,16 @@
                     <table>
                         <tbody>
                             <tr>
-                                <td>Carrera</td>
-                                <td><input type="text" class="input-full" disabled></td>
+                                <td style="font-weight: bold;">Carrera</td>
+                                <td></td>
                             </tr>
                             <tr>
-                                <td>División académica</td>
-                                <td><input type="text" class="input-full" disabled></td>
+                                <td style="font-weight: bold;">División académica</td>
+                                <td></td>
                             </tr>
                             <tr>
-                                <td>Créditos</td>
-                                <td><input type="text" class="input-full" disabled></td>
+                                <td style="font-weight: bold;">Créditos</td>
+                                <td></td>
                             </tr>
                         </tbody>
                     </table>
