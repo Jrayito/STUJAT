@@ -30,15 +30,17 @@
     <title>Trayectoria</title>
 </head>
 <body style="background-color: #F3F3F3;">
-    <div style="width: 95%; margin: auto;">
-        <div class="opciones">
+    <div style="width: 95%; margin: auto;" id="menu-sticky-sm">
+        <div class="opciones opciones-sm">
             
             <?php
                 $trayectoria_alumno = isset($_GET['alumno']) ? $_GET['alumno'] : 0;
                 function btnAcciones (){
-                    echo '<button id="guardar-trayectoria" class="btn btn-success"><i class="material-icons">save</i>Guardar</button>';
-                    echo '<button id="update-trayectoria" class="btn btn-edit"><i class="material-icons">edit</i>Editar</button>';
-                    echo '<button id="nueva-trayectoria" class="btn btn-add"><i class="material-icons">file_upload</i>Nueva trayectoria</button>';
+                    echo '<div>';
+                    echo '<button id="guardar-trayectoria" title="Guardar" class="btn btn-success"><i class="material-icons">save</i>Guardar</button>';
+                    echo '<button id="update-trayectoria" title="Editar" class="btn btn-edit"><i class="material-icons">edit</i>Editar</button>';
+                    echo '<button id="nueva-trayectoria" title="Nueva Trayectoria" class="btn btn-add"><i class="material-icons">file_upload</i>Nueva trayectoria</button>';
+                    echo '</div>';
                 }
 
                 function Notify (){
@@ -51,16 +53,22 @@
                 if(isset($_SESSION['usuario'])){
                     if($_SESSION['rol'] == 'alumno'){
                         if($_SESSION['usuario'] == $trayectoria_alumno){
+                            echo '<div>';
                             Notify();
                             btnAcciones();
+                            echo '</div>';
                         }
                     }
                     if($_SESSION['rol'] == 'docente'){
+                        echo '<div>';
                         Notify();
+                        echo '</div>';
                     }
                     
                     if($_SESSION['rol'] == 'admin' && !isset($_GET['alumno'])){
+                        echo '<div>';
                         btnAcciones();
+                        echo '</div>';
                     }
                 }
             ?>
@@ -167,8 +175,14 @@
                     $('#add-ciclo, .add-asignatura').hide();
                 }, 1000);
             }
+
+            $(window).scroll(function(){
+                $(this).scrollTop() > 10 
+                    ? $("#menu-sticky-sm").css({"background-color": 'white', 'box-shadow': '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'})   
+                    : $("#menu-sticky-sm").css({"background-color": 'transparent', 'box-shadow': 'none'})
+            });
         });
-        
+
     </script>
 </body>
 </html>
