@@ -45,9 +45,9 @@ const pintarAreasConocimiento = resp => {
 }
 
 const consultarInformacion = function (resp) {
-    $('.info-tabla-carrera table tbody tr:nth-child(1) td:nth-child(2) input').val(resp.data[0].nombre);
-    $('.info-tabla-carrera table tbody tr:nth-child(2) td:nth-child(2) input').val(`División Académica ${resp.data[0].academica}`);
-    $('.info-tabla-carrera table tbody tr:nth-child(3) td:nth-child(2) input').val(resp.data[0].creditos);
+    $('.info-tabla-carrera table tbody tr:nth-child(1) td:nth-child(2)').text(resp.data[0].nombre);
+    $('.info-tabla-carrera table tbody tr:nth-child(2) td:nth-child(2)').text(`División Académica ${resp.data[0].academica}`);
+    $('.info-tabla-carrera table tbody tr:nth-child(3) td:nth-child(2)').text(resp.data[0].creditos);
     pintarAreasConocimiento(resp.data[0].json);
 }
 
