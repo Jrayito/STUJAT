@@ -79,9 +79,9 @@
             <table class="info-creditos">
                 <tbody>
                     <tr>
-                        <td>Créditos acumulados: <?php echo $miTrayectoria->getcreditosAcumulados() ?></td>
-                        <td>Créditos restantes: <?php echo $miTrayectoria->getCreditosRestantes($miCarrera->getCreditosTotales()) ?> </td>
-                        <td>Total: <?php echo $miCarrera->getCreditosTotales() ?></td>
+                        <td><b>Créditos acumulados:</b> <?php echo $miTrayectoria->getcreditosAcumulados() ?></td>
+                        <td><b>Créditos restantes:</b> <?php echo $miTrayectoria->getCreditosRestantes($miCarrera->getCreditosTotales()) ?> </td>
+                        <td><b>Total:</b> <?php echo $miCarrera->getCreditosTotales() ?></td>
                     </tr>
                 </tbody>
             </table>
@@ -95,15 +95,15 @@
             <table>
                 <tbody>
                     <tr>
-                        <td>Nombre</td>
+                        <td style="font-weight: bold;">Nombre</td>
                         <td><?php echo $miTutor->getFullName()?></td>
                     </tr>
                     <tr>
-                        <td>División Académica</td>
+                        <td style="font-weight: bold;">División Académica</td>
                         <td><?php echo $miTutor->getDivision()?></td>
                     </tr>
                     <tr>
-                        <td>Correo</td>
+                        <td style="font-weight: bold;">Correo</td>
                         <td><?php echo $miTutor->getCorreo()?></td>
                     </tr>
                 </tbody>
