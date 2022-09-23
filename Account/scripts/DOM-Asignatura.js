@@ -89,10 +89,10 @@ const documentOpciones = (uri) => {
                 let sms = info.data[0].antecedente.hasOwnProperty('nombre') || info.data[0].subsecuente.hasOwnProperty('nombre')
                     ? (function () {
                         let text = info.data[0].antecedente.hasOwnProperty('nombre')
-                            ? '<b>Asignatura antecedente: </b> ' + info.data[0].antecedente.nombre
+                            ? '<b> - Asignatura antecedente: </b> ' + info.data[0].antecedente.nombre+'</br>'
                             : 'Sin antecedente'
                         text += info.data[0].subsecuente.hasOwnProperty('nombre')
-                            ? ' - <b>Asignatura subsecuente: </b> ' + info.data[0].subsecuente.nombre
+                            ? ' <b> - Asignatura subsecuente: </b> ' + info.data[0].subsecuente.nombre+'</br>'
                             : 'Sin subsecuente'
                         return text;
                     })() : '<b>Asignatura sin seriación</b>'
