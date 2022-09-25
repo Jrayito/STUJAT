@@ -365,6 +365,7 @@ input[type='file']{ display: block; margin: 20px 0;}
     top: 0;
     opacity: 0;
     visibility: hidden;
+    z-index: 20;
 }
 .modal-content{
     width: 60%;
@@ -373,6 +374,7 @@ input[type='file']{ display: block; margin: 20px 0;}
     padding: 15px;
     position: relative;
 }
+.modal-mostrar-asignaturas{width: 40%; margin-top: 90px;}
 .modal-content > button{
     display: flex;
     background-color: white;
@@ -401,6 +403,7 @@ input[type='file']{ display: block; margin: 20px 0;}
 .info-creditos tbody tr td:nth-child(odd){
     background-color: #ccc;
 }
+#menu-sticky-sm{width: 95%; margin: auto}
 .content-trayectoria{
     width: 95%;
     min-height: 88vh;
