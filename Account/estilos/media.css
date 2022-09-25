@@ -7,7 +7,7 @@
    .content-index-info{flex-direction: column;}
    .content-index-info > h6, .content-index-info > a{flex: none;}
    .content-index-info > a{margin-top: 5px;}
-   .formulario{width: 80%;}
+   .formulario{width: 80%; padding: 15px;}
    .btn{padding: 10px 20px;}
    .toggle-menu{position: sticky; top: auto}
    nav{width: 100%; margin-left: -500px;}
@@ -35,13 +35,24 @@
    .areas-conocimiento > div{display: block;}
    .listado-asignaturas{display: inline-block; width: 100%;}
    .informacion h5{font-size: 1rem;}
-   #menu-sticky-sm{position: sticky; top: 0; z-index: 10; padding-bottom: 10px; }
+   #menu-sticky-sm{position: sticky; top: 0; z-index: 10; padding-bottom: 10px; transition: all ease 0.5s;}
+   #menu-sticky-sm.static-menu{background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 100%;}
    .opciones-sm {flex-direction: column-reverse;}
    .opciones-sm > h5{font-size: 1rem; text-align: center; margin-right: 0;}
    .opciones-sm > div:nth-child(1) > div:nth-child(2) > button{padding: 5px;}
    .opciones-sm button{margin: 0 2px; font-size: 0.8rem;}
    i{margin-right: 5px;}
    #remover-asignaturas{margin-bottom: 10px;}
+   .modal-content{width: 95%; margin-top: 15px}
+   .buscar-asignatura > input[type='text']{width: 100%;}
+   embed{display: none;}
+   .contenedor-toda-informacion-asignatura{max-width: 100%; display: flex; flex-direction: column; height: 92vh; overflow-y: auto;}
+   .informacion-asignatura{position: static; width: 100%;}
+   .informacion-asignatura .opciones{justify-content: center; align-items: center;}
+   .pdf{width: 100%; position: static;}
+   .pdf > div{margin-left: 0; min-height: auto; padding: 10px 15px; background-color: white;}
+   .modal-confirmacion{width: 90%;}
+   
 }
 
  /* Medium devices (tablets, 768px and up) */
