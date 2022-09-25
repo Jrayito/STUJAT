@@ -30,7 +30,7 @@
     <title>Trayectoria</title>
 </head>
 <body style="background-color: #F3F3F3;">
-    <div style="width: 95%; margin: auto;" id="menu-sticky-sm">
+    <div id="menu-sticky-sm">
         <div class="opciones opciones-sm">
             
             <?php
@@ -86,7 +86,7 @@
 
     <div class="modal">
         
-        <div class="modal-content" style="width: 40%; margin-top: 90px;">
+        <div class="modal-content">
             <button><i class="material-icons">close</i></button>
             <div class="buscar-asignatura">
                 <input 
@@ -119,7 +119,7 @@
     </div>
 
     <div class="modal-informacion">
-        <div class="modal-content">
+        <div class="modal-content modal-mostrar-asignaturas">
         <button><i class="material-icons">close</i></button>
             <div>
                 <h2>Información de colores</h2>
@@ -162,7 +162,6 @@
     <script src="../scripts/Main.js"></script>
     <script src="../scripts/Interfaz.js"></script>
     <script>cargarTemplete('')</script>
-
     
     <script src="../scripts/DOM-Trayectoria.js"></script>
     <script src="../scripts/Sortable.js"></script>
@@ -176,11 +175,13 @@
                 }, 1000);
             }
 
-            $(window).scroll(function(){
+            if(screen.width <= 576){
+                $(window).scroll(function(){
                 $(this).scrollTop() > 10 
-                    ? $("#menu-sticky-sm").css({"background-color": 'white', 'box-shadow': '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'})   
-                    : $("#menu-sticky-sm").css({"background-color": 'transparent', 'box-shadow': 'none'})
+                    ? $("#menu-sticky-sm").addClass('static-menu')
+                    : $("#menu-sticky-sm").removeClass('static-menu')
             });
+            }
         });
 
     </script>
