@@ -67,6 +67,7 @@
                     
                     if($_SESSION['rol'] == 'admin' && !isset($_GET['alumno'])){
                         echo '<div>';
+                        echo '<div></div>';
                         btnAcciones();
                         echo '</div>';
                     }
@@ -175,7 +176,7 @@
                 }, 1000);
             }
 
-            if(screen.width <= 576){
+            if(screen.width <= 992){
                 $(window).scroll(function(){
                 $(this).scrollTop() > 10 
                     ? $("#menu-sticky-sm").addClass('static-menu')
