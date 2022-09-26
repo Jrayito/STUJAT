@@ -63,7 +63,7 @@
             <h3>Tutorados a cargo</h3>
             <table>
                 <?php
-                    if(!($width <= 576)){
+                    if(!($width <= 768)){
                 ?>
                 <thead>
                     <tr>
@@ -82,9 +82,13 @@
                             $trayectoria = new Trayectoria();
                             $trayectoria->consultarTrayectoria($conexion, $misTutorados[$i]->matricula);
 
-                            if($width <= 576){
+                            if($width <= 768){
                                 echo '<tr data-tutorado="'.$misTutorados[$i]->matricula.'" class="title-table" style="text-align: center;">';
-                                echo '<td colspan="2">'.$misTutorados[$i]->nombre.' '.$misTutorados[$i]->apellidos.'</td>';
+                                if( $trayectoria->getCountMsm() > 0){
+                                    echo '<td colspan="2">'.$misTutorados[$i]->nombre.' '.$misTutorados[$i]->apellidos.'</br><small style="color: #ccc">Se requiere atención</small></td>';
+                                }else{
+                                    echo '<td colspan="2">'.$misTutorados[$i]->nombre.' '.$misTutorados[$i]->apellidos.'</td>';
+                                }
                                 echo '</tr>';
                                 echo '<tr data-tutorado="'.$misTutorados[$i]->matricula.'">';
                                 echo '<td>Matricula</td>';
@@ -94,13 +98,9 @@
                                 echo '<td>Correo</td>';
                                 echo '<td>'.$misTutorados[$i]->correo.'</td>';
                                 echo '</tr>';
-                                if( $trayectoria->getCountMsm() > 0){
-                                    echo '<tr data-tutorado="'.$misTutorados[$i]->matricula.'" style="background-color: #ff2748; color: white; text-align: center;"><td colspan="2">Se necesita atención.</td></tr>';
-                                }
-
                             }else{
                                 echo '<tr data-tutorado="'.$misTutorados[$i]->matricula.'">';
-                                echo ' <td colspan="2">'.$misTutorados[$i]->matricula.'</td>';
+                                echo ' <td>'.$misTutorados[$i]->matricula.'</td>';
                                 echo '<td>'.$misTutorados[$i]->nombre.'</td>';
                                 echo '<td>'.$misTutorados[$i]->apellidos.'</td>';
                                 echo '<td>'.$misTutorados[$i]->correo.'</td>';
@@ -225,11 +225,12 @@
             visibility: 'hidden'
         });
 
+        $('body').removeClass('open-modal');
     });
 
     $('.lista-tutorados > table tbody tr').click(function(e) {
         const tutorado = $(this).attr('data-tutorado');
-
+        $('html, body').animate({ scrollTop: 0 }, 300);
         $('body').addClass('open-modal');
         $.ajax({
             url: '../../../php/Servicios/getTutorado.php',
