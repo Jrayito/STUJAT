@@ -106,7 +106,7 @@
         if($('#label-check-menu').css('display') == 'block'){
             $(this).is(':checked') 
                 ? ($('nav').animate({'margin-left': '0'}, 'normal'), $('body').addClass('open-modal'))
-                : ($('nav').animate({'margin-left': '-500px'}, 'normal'), $('body').removeClass('open-modal'))
+                : ($('nav').animate({'margin-left': '-1000px'}, 'normal'), $('body').removeClass('open-modal'))
         }
     });
 
