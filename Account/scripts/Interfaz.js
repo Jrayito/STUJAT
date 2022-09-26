@@ -77,7 +77,7 @@ class UI {
 
             $('.tabla-buscador table tbody').html(html);
 
-        }else if(screen.width >= 1200){
+        }else if(screen.width > 576){
             for (let x = 0; x < data.data.length; x++) {
                 const tr = $('<tr/>').attr('data-id', data.data[x].usuario);
                 tr.append(`<td>${data.data[x].nombre}</td>`);
@@ -107,7 +107,7 @@ class UI {
                         </tr>`;
             }
             $('.tabla-buscador table tbody').html(html);
-        }else if(screen.width >= 1200){
+        }else if(screen.width > 576){
             for (let x = 0; x < data.data.length; x++) {
                 const tr = $('<tr/>');
     
@@ -147,7 +147,7 @@ class UI {
                         </tr>`;
             }
             $('.tabla-buscador table tbody').html(html);
-        }else if(screen.width >= 1200){
+        }else if(screen.width > 576){
             for (let x = 0; x < data.data.length; x++) {
                 const tr = $('<tr/>');
     
