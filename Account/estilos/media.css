@@ -1,5 +1,5 @@
  /* Small devices (landscape phones, 576px and up) */
-@media (max-width: 576px) {
+@media all and (max-width: 576px) {
    body{overflow-x: hidden;}
    footer{display: none;}
    .contenedor{width: 100%; padding: 0 10px;}
@@ -10,7 +10,7 @@
    .formulario{width: 80%; padding: 15px;}
    .btn{padding: 10px 20px;}
    .toggle-menu{position: sticky; top: auto}
-   nav{width: 100%; margin-left: -500px;}
+   nav{width: 100%; margin-left: -1000px;}
    .img-banner > img{height: 180px; width: 100%;}
    .img-banner > h4{font-size: 1.2rem;}
    #label-check-menu{display: block;}
@@ -35,15 +35,20 @@
    .areas-conocimiento > div{display: block;}
    .listado-asignaturas{display: inline-block; width: 100%;}
    .informacion h5{font-size: 1rem;}
-   #menu-sticky-sm{position: sticky; top: 0; z-index: 10; padding-bottom: 10px; transition: all ease 0.5s;}
-   #menu-sticky-sm.static-menu{background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 100%;}
+   #menu-sticky-sm{position: sticky; top: 0; z-index: 10; padding-bottom: 10px;}
+   /* #menu-sticky-sm.static-menu{
+      background-color: white; 
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+      width: 100%;
+      padding: 5px 8px;
+   } */
    .opciones-sm {flex-direction: column-reverse;}
    .opciones-sm > h5{font-size: 1rem; text-align: center; margin-right: 0;}
    .opciones-sm > div:nth-child(1) > div:nth-child(2) > button{padding: 5px;}
    .opciones-sm button{margin: 0 2px; font-size: 0.8rem;}
    i{margin-right: 5px;}
    #remover-asignaturas{margin-bottom: 10px;}
-   .modal-content{width: 95%; margin-top: 15px}
+   .modal-content{width: 95%; max-height: 95vh; margin-top: 15px; overflow-y: scroll;}
    .buscar-asignatura > input[type='text']{width: 100%;}
    embed{display: none;}
    .contenedor-toda-informacion-asignatura{max-width: 100%; display: flex; flex-direction: column; height: 92vh; overflow-y: auto;}
@@ -52,14 +57,59 @@
    .pdf{width: 100%; position: static;}
    .pdf > div{margin-left: 0; min-height: auto; padding: 10px 15px; background-color: white;}
    .modal-confirmacion{width: 90%;}
-   
+   .listado{flex-direction: column;}
+   .listado > div{border-right: none; min-width: 100%;}
 }
 
  /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {}
+@media all and (min-width: 577px) and (max-width: 768px) {
+   .logo{width: 45%;}
+   .formulario{width: 50%; padding: 20px;}
+   nav{width: 50%; margin-left: -500px; }
+   #label-check-menu{display: block;}
+   main{margin-left: 0; padding: 30px 10px;}
+   .form-nuevo-usuario, .carrera, .form-nueva-asignatura, .informacion,
+   .lista-tutorados, .form-nueva-carrera{padding: 20px;}
+   .listado-asignaturas{grid-template-columns: repeat(4, 1fr);}
+   /* .opciones-sm {flex-direction: row-reverse;} */
+   .opciones-sm > h5{font-size: 1rem;}
+   .opciones-sm > div:nth-child(1) > div:nth-child(2) > button{padding: 5px;}
+   .opciones-sm button{margin: 0 2px; font-size: 0.8rem;}
+   i{margin-right: 8px;}
+   #menu-sticky-sm{position: sticky; top: 0; z-index: 10; padding-bottom: 10px;}
+   /* #menu-sticky-sm.static-menu{
+      background-color: white; 
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+      width: 100%;
+      padding: 5px 8px;
+   } */
+   #form-re-asignatura > div:nth-child(8){display: block; border: none; padding: 0; margin-left: 0; text-align: left;}
+   #form-re-asignatura > div{margin-top: 10px; margin-bottom: 10px;}
+   .input-mini{width: 20%;}
+   .title-table{background-color: #4CAF50 !important; color: white !important;}
+   table > tbody > tr > td{border: 1px solid #ccc}
+   tbody tr:nth-child(even){background-color: transparent; color: black;}
+   .modal-content{width: 95%; max-height: 95vh; margin-top: 15px; overflow-y: scroll;}
+   embed{display: none;}
+   .contenedor-toda-informacion-asignatura{max-width: 100%; display: flex; flex-direction: column; height: 92vh; overflow-y: auto;}
+   .informacion-asignatura{position: static; width: 70%; margin: 30px auto 0 auto; height: auto;}
+   .informacion-asignatura .opciones{justify-content: center; align-items: center;}
+   .pdf{width: 100%; position: static; margin-top: 0;}
+   .pdf > div{width: 70%; margin: auto; min-height: auto; padding: 10px 15px; background-color: white;}
+}
 
  /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {}
-
- /* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {}
+@media all and (min-width: 769px) and (max-width: 992px) {
+   .formulario{width: 40%; padding: 20px;}
+   .opciones-sm > h5{font-size: 1.2rem;}
+   #menu-sticky-sm{position: sticky; top: 0; z-index: 10; padding-bottom: 10px; }
+   /* #menu-sticky-sm.static-menu{
+      background-color: white; 
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+      width: 100%;
+      padding: 5px 8px;
+   } */
+   .modal-mostrar-asignaturas{width: 60%;}
+   #form-re-asignatura > div:nth-child(8){display: block; border: none; padding: 0; margin-left: 0; text-align: left;}
+   #form-re-asignatura > div{margin-top: 10px; margin-bottom: 10px;}
+}
