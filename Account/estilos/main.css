@@ -42,7 +42,7 @@ header{
 }
 footer{
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     background-color: #2E7D32;
     padding: 5px 0;
@@ -403,7 +403,13 @@ input[type='file']{ display: block; margin: 20px 0;}
 .info-creditos tbody tr td:nth-child(odd){
     background-color: #ccc;
 }
-#menu-sticky-sm{width: 95%; margin: auto}
+#menu-sticky-sm{width: 95%; margin: auto; transition: all ease 0.5s;}
+#menu-sticky-sm.static-menu{
+    background-color: white; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    width: 100%;
+    padding: 5px 8px;
+}
 .content-trayectoria{
     width: 95%;
     min-height: 88vh;
