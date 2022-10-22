@@ -27,3 +27,5 @@ const cargarHeader = (texto) => {
     
     $('header').append(divLogo, $('<div/>').append(divTexto.append(h6)));
 }
+
+$('form, input[type="text"], input[type="password"], input[type="email"]').attr('autocomplete', 'off');
