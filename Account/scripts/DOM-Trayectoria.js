@@ -64,6 +64,7 @@ const consultarAreaConocimiento = (callback, filtro, index, option) => {
 }
 
 const pintarAsignaturas = (info, elemento) => {
+    console.log(info)
     for (let x = 0; x < info.length; x++) {
 
         const p = $('<p/>', { html: `${info[x].nombre}` });
@@ -364,6 +365,7 @@ const addFunciones = () => {
                     $(`#${parent} > span`).text(`Créditos disponibles: ${trayectoria.ciclos[parent].creditos}`);
                     sugeridas.splice(idInfor, 1);
                     consultarSubsecuente(subsecuente);
+                    $('#opciones-busqueda').change();
                 }
             } else { ui.mostrarAlerta('Lo créditos seleccionados exceden los disponibles', '#ef9a9a', '#f44336'); }
 
@@ -531,6 +533,7 @@ $('.info-asignaturas').click(function () {
 });
 
 $('#opciones-busqueda').change(function (e) {
+    console.log('hago cambio')
     e.stopImmediatePropagation();
     const index = $(this).val();
     if (index) {
@@ -546,6 +549,7 @@ $('#opciones-busqueda').change(function (e) {
 
         switch (index) {
             case '9':
+                console.log('Aqui hago el cambio')
                 consultarAsignatura(null, mostrarAsignaturas, asignaturasCargadas.toString());
                 break;
             case '10':
