@@ -48,8 +48,11 @@ const consultarAsignatura = (nombre, callback, filtro) => {
         url: '../../php/Servicios/pruebaAsignaturas.php', type: 'POST',
         data: { nombre: nombre, asignaturas: filtro },
         success: function (resp) {
-            console.log(JSON.parse(resp))
-            callback(JSON.parse(resp));
+            const data = JSON.parse(resp)
+            if((!data.data.length == 0)){
+                callback(data);
+            }
+           
         }
     });
 }
@@ -67,21 +70,24 @@ const pintarAsignaturas = (info, elemento) => {
     console.log(info)
     for (let x = 0; x < info.length; x++) {
 
-        const p = $('<p/>', { html: `${info[x].nombre}` });
-        const icon = $('<i/>', { class: 'material-icons', html: 'arrow_forward' });
-        const div = $('<div/>', {
-            class: 'asignaturas animate__animated animate__fadeIn',
-            "data-id": x,
-        }).append(p, icon);
-        div.css(
-            {
-                'background-color': `${colores[info[x].areaConocimiento - 1]}`,
-                'border': `2px solid ${border[info[x].areaConocimiento - 1]}`
-            });
-
-        $('.' + elemento + '').append(div);
-
-        addFunciones();
+        if(!(info[x] == undefined)){
+            const p = $('<p/>', { html: `${info[x].nombre}` });
+            const icon = $('<i/>', { class: 'material-icons', html: 'arrow_forward' });
+            const div = $('<div/>', {
+                class: 'asignaturas animate__animated animate__fadeIn',
+                "data-id": x,
+            }).append(p, icon);
+            div.css(
+                {
+                    'background-color': `${colores[info[x].areaConocimiento - 1]}`,
+                    'border': `2px solid ${border[info[x].areaConocimiento - 1]}`
+                });
+    
+            $('.' + elemento + '').append(div);
+    
+            addFunciones();
+        }
+        
     }
 }
 const createAsignatura = (css, text, clave, status, creditos, rep = 0) => {
